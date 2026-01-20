@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intramurals Team Checker</title>
+    
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #0044AA;
+            --accent-light: #E6F0FF;
+            --text-dark: #003366;
+            --gradient-teams: linear-gradient(45deg, #ff0000, #fffb00, #48ff00, #002bff);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh;
+        }
+
+        .main-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px; border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            width: 100%; max-width: 500px; text-align: center;
+        }
+
+        .form-section { margin-bottom: 25px; text-align: left; }
+        label { display: block; margin-bottom: 10px; font-weight: 600; color: var(--text-dark); }
+        .radio-group { display: flex; gap: 20px; }
+        .select-group { display: flex; gap: 10px; }
+        
+        select { flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #ced4da; }
+
+        .btn-submit {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        background: var(--gradient-teams);
+        background-size: 200% auto;
+        transition: 0.5s;
+    }
+        
+        .btn-submit:hover {
+        background-position: right center;
+    }
+
+        .output-container {
+            margin-top: 25px; padding: 20px; border-radius: 12px;
+            background: var(--accent-light); border: 1px solid #b3d1ff;
+            min-height: 80px; display: flex; justify-content: center; align-items: center;
+        }
+        .team-logo { max-width: 150px; border-radius: 10px; margin-bottom: 10px; }
+    </style>
+
+   
+</head>
+<body>
+
+<div class="main-card">
+    <h1>Seatwork 2 Third Quarter</h1>
+
+    <div class="form-section">
+        <label>Are you done with the online registration?</label>
+        <div class="radio-group">
+            <span><input type="radio" name="answer1" value="yes"> Yes</span>
+            <span><input type="radio" name="answer1" value="no"> No</span>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <label>Do you have medical clearance?</label>
+        <div class="radio-group">
+            <span><input type="radio" name="answer3" value="yes"> Yes</span>
+            <span><input type="radio" name="answer3" value="no"> No</span>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <label>Grade & Section</label>
+        <div class="select-group">
+            <select id="grd">
+                <option value=""></option><option value="7">7</option><option value="8">8</option>
+                <option value="9">9</option><option value="10">10</option>
+            </select>
+            <select id="sct">
+                <option value=""></option><option value="TOPAZ">TOPAZ</option><option value="RUBY">RUBY</option>
+                <option value="SAPPHIRE">SAPPHIRE</option><option value="EMERALD">EMERALD</option>
+            </select>
+        </div>
+    </div>
+
+    <button type="button" class="btn-submit" py-click="check_eligibility">Sign up</button>
+
+    <div class="output-container">
+        <div id="Result">Please fill out the form above.</div>
+    </div>
+</div>
+
+<script type="py" src="main.py"></script>
+
+</body>
+</html>
